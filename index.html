@@ -10,8 +10,9 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="index.css">
-     <style>
-            @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
 * {
   padding: 0;
   margin: 0;
@@ -19,7 +20,7 @@
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Comfortaa', cursive;
   color: #fff;
 }
 
@@ -33,7 +34,7 @@ a {
   left: 0;
   width: 100%;
   height: 100vh;
-  background: rgb(0, 0, 0);
+  background: #000;
   z-index: -1;
 }
 
@@ -126,19 +127,25 @@ header ul li a {
   justify-content: center;
   align-items: center;
   margin: 30px auto;
-  color: #fff;
+  color: rgb(0, 0, 0);
   font-size: 20px;
   width: 200px;
   height: 70px;
   border-radius: 30px;
-  background: rgba(75, 74, 7, 0.7);
+  background-image: linear-gradient(to right, #fceabb 0%, #f8b500  51%, #fceabb  100%);
+
+  
 }
+
+
+
+         
 
 @keyframes scroll-down {
   0% {
     transform: translate(10px, -10px);
     opacity: 0;
-    border-color: #edea58;
+    border-color: #edd758;
   }
   40% {
     opacity: 1;
@@ -148,7 +155,7 @@ header ul li a {
   100% {
     opacity: 0;
     transform: translate(-10px, 10px);
-    border-color: #edea58;
+    border-color: #edd758;
   }
 }
 
@@ -159,7 +166,9 @@ header ul li a {
   100% {
   }
 }
-        </style>
+    </style>
+
+     
 </head>
 <body>
     <div id="loading">
@@ -167,28 +176,33 @@ header ul li a {
     </div>
    
 
-   
     <div class="wrapper">
-         <div id="title">ROHIT RAJ</div><br>
-    <div id="links">
-        <a href="#skills">Skills</a>
-        <a href="#work" style="margin:0px 60px;">Work</a>
-        <a href="#certi">Certification</a>
-        <a href="#contact">Contact</a>  
-    </div>
-         <center>
-    <div id="middle">
-        
-           <b> Pre-Final Year ,Information Technology Undergraduate</b><br>
+      <header>
+          <ul>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#certi">Certification</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+      </header>  
+
+      <div class="banner">
+          <h1>ROHIT RAJ</h1>
+          <p> <b> Pre-Final Year ,Information Technology Undergraduate</b><br>
             ● Disciplined In Software Engineering and Network Engineering<br>
-            ● Motivated Team Player and Problem Solver<br>
-            <button class="btn_one"><a href="https://www.linkedin.com/in/r0hitraj/">LinkedIn</a></button>
-            <button class="btn_one"><a href="https://github.com/r0hitraj">Github</a></button>
-        
-    </div>
-    </center>
-    <canvas id="canvas1"></canvas>
-    </div>
+            ● Motivated Team Player and Problem Solver<br></p>
+          <a href="https://www.linkedin.com/in/r0hitraj/">LinkedIn</a>
+          <a href="https://github.com/r0hitraj">Github</a>
+      </div>
+      
+      <div class="scroll">
+          <span></span>
+          <span></span>
+          <span></span>
+      </div>
+  </div>
+  <canvas id="canvas1"></canvas>
+
         <script>
                                     const canvas = document.getElementById("canvas1");
                         const ctx = canvas.getContext("2d");
@@ -233,14 +247,14 @@ header ul li a {
                         function init() {
                             particlesArray = [];
                             let numberOfParticles = (canvas.height * canvas.width) / 30000;
-                            for(let i = 0; i < numberOfParticles * 2; i++) {
+                            for(let i = 0; i < numberOfParticles * 7; i++) {
                                 let size = (Math.random() * 6) + 1;
                                 let x = (Math.random() * ((innerWidth - size * 2) - (size * 2)) + size * 2); 
                                 let y = (Math.random() * ((innerHeight - size * 2) - (size * 2)) + size * 2); 
                                 
                                 let directionX = (Math.random() *  5) - 2.5;
                                 let directionY = (Math.random() *  5) - 2.5;
-                                let color = '#56c596';
+                                let color = '#DC281E';
                                 particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
                             }
                         }
@@ -252,7 +266,15 @@ header ul li a {
                                     let distance = ((particlesArray[a].x - particlesArray[b].x) * (particlesArray[a].x - particlesArray[b].x)) + ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y));
                                     if(distance < (canvas.width / 7) * (canvas.height / 7)) {
                                         opacityValue = 1 - (distance / 20000);
-                                        ctx.strokeStyle = 'rgba(234, 196, 53,' + opacityValue + ')';
+                                        var randcol=Math.floor((Math.random() * 10) + 1);
+                                         if (randcol>8) {
+                                          ctx.strokeStyle = 'rgba(0, 0, 255,' + opacityValue + ')';
+                                           } else if (randcol>3) {
+                                            ctx.strokeStyle = 'rgba(220, 40, 30,' + opacityValue + ')';
+                                            } 
+                                            else {
+                                              ctx.strokeStyle = 'rgba(0, 255, 0,' + opacityValue + ')';
+                                          }
                                         ctx.lineWidth = 1;
                                         ctx.beginPath();
                                         ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
@@ -284,104 +306,106 @@ header ul li a {
 
 
         </script>
-    <div id="portfolio">
-             <div id="skills">
-                 <h1>Skills</h1>   
-                 <div>
-                    <h2>Programming Languages</h2><h3>C, C++, Java,Python</h3>
-                    <h2>Web Technologies</h2><h3> HTML,CSS ,JavaScript,Django,Bootstrap,Json, Nodejs</h3>
-                    <h2>Database</h2>
-                        ● Mysql
-                         ● Postgresql
-                        <h2>Operating System</h2>
-                       <h3> ● Linux,Unix
-                        ● Windows </h3>
-                       <h2>FUNDAMENTAL SKILLS</h2>
-                      <h3>  ● Data Structure And
-                        Algorithms
-                        ● Object Oriented
-                        Programming
-                          ● Operating systems
-                          ● Database Management system
-                          ● Computer Networks
-                        ● Digital Electronics
-                        ● Cryptography</h3>
-                    
-                 </div> 
-             </div>
-         
-              <div id="work">
-                  <h1>EXPERIENCES</h1>
-                 <h2>Bharat Sanchar Nigam Limited, Patna — Summer Trainee</h2>
-                    <h4>JUNE-2019</h4>
-                 <div>
-                 ● Part of a Team whose focus on Customer Service<br>
-                    ○ Configured 20+ ADSL and OFC Modem<br>
-                ● Gained In Plant Training of GSM Division of BSNL<br>
-                    ○ Analyzed Base transceiver station<br>
-                    ○ Analyzed Base Station Controller<br>
-                    ○ Explored Mobile Switching Centre<br>
-                 ● Analyzed The Feature Of Digital Exchange<br>
-                     ○ Alarm Facility,CLIP,Dynamic Locking<br>
-                    ○ Conference Facility<br>
-                </div>
-                 <div class="project">
-                     <h1>PROJECT</h1>
-                 <h2>Payroll Management System</h2>
-                 <div>
-                     ● Utility software for low end computers<br>
-                    ● Helps in Managing Employees details and Generate Salary Report<br>
-                    ● Made with classical file system<br>
-                    ● Technologies used : C++<br></div>
-                 <button class="btn_one" ><a href="https://github.com/r0hitraj/Payroll-Management-System">visit project</a></button>
-                </div>
-
+    <div id="data">
+          <div id="portfolio">
+            <div id="skills">
+                <h1>Skills</h1>   
+                <div>
+                  <h2>Programming Languages</h2><h3>C, C++, Java,Python</h3>
+                  <h2>Web Technologies</h2><h3> HTML,CSS ,JavaScript,Django,Bootstrap,Json, Nodejs</h3>
+                  <h2>Database</h2>
+                      ● Mysql
+                        ● Postgresql
+                      <h2>Operating System</h2>
+                      <h3> ● Linux,Unix
+                      ● Windows </h3>
+                      <h2>FUNDAMENTAL SKILLS</h2>
+                    <h3>  ● Data Structure And
+                      Algorithms
+                      ● Object Oriented
+                      Programming
+                        ● Operating systems
+                        ● Database Management system
+                        ● Computer Networks
+                      ● Digital Electronics
+                      ● Cryptography</h3>
+                  
+                </div> 
+            </div>
+        
+            <div id="work">
+                <h1>EXPERIENCES</h1>
+                <h2>Bharat Sanchar Nigam Limited, Patna — Summer Trainee</h2>
+                  <h4>JUNE-2019</h4>
+                <div>
+                ● Part of a Team whose focus on Customer Service<br>
+                  ○ Configured 20+ ADSL and OFC Modem<br>
+              ● Gained In Plant Training of GSM Division of BSNL<br>
+                  ○ Analyzed Base transceiver station<br>
+                  ○ Analyzed Base Station Controller<br>
+                  ○ Explored Mobile Switching Centre<br>
+                ● Analyzed The Feature Of Digital Exchange<br>
+                    ○ Alarm Facility,CLIP,Dynamic Locking<br>
+                  ○ Conference Facility<br>
+              </div>
                 <div class="project">
-                 <h2>Multi-Platform Music Stats</h2>
-                 <div>
-                    ● Web Application to better manage the Songs Played across different
-                    platforms<br>
-                    ● Helps in discovering Genres,Artist and Album of Random Songs played
-                    in the past.<br>
-                    ● Technologies used : HTML, CSS,Javascript,Json,RestAPI,Spotify API<br>
-                 </div>
-                 <button class="btn_one" ><a href="https://github.com/r0hitraj/Multi-Platform-Music-Stats-Viewer">visit project</a></button>
+                    <h1>PROJECT</h1>
+                <h2>Payroll Management System</h2>
+                <div>
+                    ● Utility software for low end computers<br>
+                  ● Helps in Managing Employees details and Generate Salary Report<br>
+                  ● Made with classical file system<br>
+                  ● Technologies used : C++<br></div>
+                <button class="btn_one" ><a href="https://github.com/r0hitraj/Payroll-Management-System">visit project</a></button>
+              </div>
+
+              <div class="project">
+                <h2>Multi-Platform Music Stats</h2>
+                <div>
+                  ● Web Application to better manage the Songs Played across different
+                  platforms<br>
+                  ● Helps in discovering Genres,Artist and Album of Random Songs played
+                  in the past.<br>
+                  ● Technologies used : HTML, CSS,Javascript,Json,RestAPI,Spotify API<br>
                 </div>
+                <button class="btn_one" ><a href="https://github.com/r0hitraj/Multi-Platform-Music-Stats-Viewer">visit project</a></button>
+              </div>
 
-             </div>
-             <div id="certi">
-                 <h1>Certification</h1>
-                 <h2>
-                    •Relational database Systems,
-                    Coursera<br>
-                    •Introduction to Cisco
-                    Networking ,Coursera<br>
-                    •Computer Networks,
-                    SWAYAM MHRD<br>
-                    •Developing soft skills and
-                    Personality ,NPTEL<br>
-                    •Advance Computer
-                    Architecture ,NPTEL<br>
-                    •Digital Circuits,NPTEL<br>
-                 </h2>
-
-
-              <div id="contact">
-                 <h1>Contact</h1> 
-                 <h2>Email me -"rohit3374@gmail.com"<br><br>
+            </div>
+            <div id="certi">
+                <h1>Certification</h1>
+                <h2>
+                  •Relational database Systems,
+                  Coursera<br>
+                  •Introduction to Cisco
+                  Networking ,Coursera<br>
+                  •Computer Networks,
+                  SWAYAM MHRD<br>
+                  •Developing soft skills and
+                  Personality ,NPTEL<br>
+                  •Advance Computer
+                  Architecture ,NPTEL<br>
+                  •Digital Circuits,NPTEL<br>
+                </h2>
 
 
-                     College Mail- "18it074rohi@ug.cusat.ac.in "
-                 </h2>
-                 <div id="details">
-                    <a class="btn_social"><i class="fas fa-phone"></i></a>
-                    <a class="btn_social"><i class="fas fa-at"></i></a>
-                    <a class="btn_social"><i class="fab fa-twitter"></i></a>
-                    <a class="btn_social"><i class="fab fa-dribbble"></i></a>
-                 </div>   
-             </div>
+            <div id="contact">
+                <h1>Contact</h1> 
+                <h2>Email me -"rohit3374@gmail.com"<br><br>
+
+
+                    College Mail- "18it074rohi@ug.cusat.ac.in "
+                </h2>
+                <div id="details">
+                  <a class="btn_social"><i class="fas fa-phone"></i></a>
+                  <a class="btn_social"><i class="fas fa-at"></i></a>
+                  <a class="btn_social"><i class="fab fa-twitter"></i></a>
+                  <a class="btn_social"><i class="fab fa-dribbble"></i></a>
+                </div>   
+            </div>
     </div>
-    <div id="footer">
+   <cen 
+    <div id="footer" class="center">
         I AM STILL LEARNING  <br><br>
         Made by ❤️ Rohit Raj
     </div>
