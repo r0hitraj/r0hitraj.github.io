@@ -418,6 +418,18 @@ header ul li a {
         I AM STILL LEARNING  <br><br>
         Made by ❤️ Rohit Raj 
     </div>
+        
+         <script>
+  function resize(){    
+    $("#canvas").outerHeight($(window).height()-$("#canvas").offset().top- Math.abs($("#canvas").outerHeight(true) - $("#canvas").outerHeight()));
+  }
+  $(document).ready(function(){
+    resize();
+    $(window).on("resize", function(){                      
+        resize();
+    });
+  });
+  </script>
 <script src="index.js" type="text/javascript"></script>
 </body>
 </html>
