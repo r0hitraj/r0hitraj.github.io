@@ -1,5 +1,4 @@
-#canvas{
-  border: solid 1px blue;  
+#canvas1{ 
   width: 100%;
 }
 #data {
@@ -294,6 +293,8 @@ h1 {
     animation: Gradient 20s ease infinite;
     font-family: 'Comfortaa', cursive;
     text-decoration:none;
+  width: 100%;
+  height: auto;
 }
 button:focus {
     outline:none;
